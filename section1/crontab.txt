@@ -1,0 +1,1 @@
+0 1 * * * /usr/bin/python3  /path/to/file/section1.py >> ~/cronjob.log 2>&1

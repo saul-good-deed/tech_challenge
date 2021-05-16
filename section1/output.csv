@@ -1,0 +1,10 @@
+cust_id,cust_name,txn_id,prod_id,qty,amount,above_100
+1,John Smith,1014,444,5.0,2220,True
+1,John Smith,1018,997,2.0,557,True
+2,Jane Smith,1010,999,2.0,300,True
+2,Jane Smith,1011,998,3.0,301,True
+3,eng huat Lim,1012,997,1.0,90,False
+3,eng huat Lim,1019,444,2.0,51,False
+4,Su Lim Ip,1013,321,1.0,720,True
+6,Saul Goodman,1015,223,5.0,400,True
+6,Saul Goodman,1017,4552,2.0,123,True
