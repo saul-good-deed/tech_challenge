@@ -1,0 +1,4 @@
+select cs.customer_name, sum(total_amount) as total_spending
+from sales_txn txn
+inner join customer cs on txn.customer_id = cs.customer_id
+group by cs.customer_name;

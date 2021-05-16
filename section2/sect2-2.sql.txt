@@ -1,0 +1,17 @@
+ SELECT rk.manufacturer,
+    rk.sales_quantity,
+    rk.sales_number,
+    rk.ranking
+   FROM ( SELECT a.manufacturer,
+            a.sales_quantity,
+            a.sales_number,
+            rank() OVER (ORDER BY a.sales_quantity DESC, a.sales_number DESC) AS ranking
+           FROM ( SELECT car.manufacturer,
+                    sum(txn.quantity) AS sales_quantity,
+                    sum(txn.total_amount) AS sales_number
+                   FROM sales_txn txn
+                     JOIN car car ON txn.car_id = car.car_id
+                  WHERE date_trunc('month'::text, txn.txn_date) = date_trunc('month'::text, CURRENT_DATE::timestamp with time zone)
+                  GROUP BY car.manufacturer) a) rk
+  WHERE rk.ranking <= 3
+  ORDER BY rk.ranking;
